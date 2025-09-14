@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบสอบถามการประเมิน Life Gaps สำหรับการวางแผนประกันภัย</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="survey-header text-center py-4 mb-4">
+            <div class="container">
+                <h1 class="display-6 fw-bold text-white mb-2">
+                    <i class="fas fa-shield-alt me-2"></i>
+                    แบบสอบถามการประเมิน Life Gaps
+                </h1>
+                <p class="lead text-white-50 mb-0">สำหรับการวางแผนประกันภัยที่เหมาะสมกับไลฟ์สไตล์ของคุณ</p>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="progress-section mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <span class="text-muted">ความคืบหน้า</span>
+                    <span class="progress-text">ขั้นตอนที่ 1 จาก 6</span>
+                </div>
+                <div class="progress" style="height: 8px;">
+                    <div class="progress-bar" role="progressbar" style="width: 16.67%" aria-valuenow="1" aria-valuemin="0" aria-valuemax="6"></div>
+                </div>
+            </div>
+
+            <div id="introduction" class="section-card active">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-info-circle fa-3x text-primary mb-3"></i>
+                            <h2 class="card-title">คำนำ</h2>
+                        </div>
+                        <div class="introduction-content">
+                            <p class="lead">แบบสอบถามนี้ออกแบบมาเพื่อช่วยให้เราเข้าใจปัจจัยสำคัญในชีวิตของคุณ เพื่อนำไปสู่การวิเคราะห์ความต้องการประกันภัยที่เหมาะสมกับไลฟ์สไตล์ของคุณมากที่สุด</p>
+                            
+                            <div class="alert alert-info">
+                                <i class="fas fa-lightbulb me-2"></i>
+                                การรู้จักตัวเองและเตรียมความพร้อมสำหรับอนาคตเป็นสิ่งสำคัญที่จะช่วยให้คุณมีคุณภาพชีวิตที่ดีขึ้น
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <i class="fas fa-clock text-success me-2"></i>
+                                        <strong>เวลาที่ใช้:</strong> ประมาณ 15-20 นาที
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <i class="fas fa-lock text-success me-2"></i>
+                                        <strong>ความเป็นส่วนตัว:</strong> ข้อมูลจะถูกเก็บรักษาเป็นความลับอย่างเคร่งครัด
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary btn-lg px-5" onclick="startSurvey()">
+                                    <i class="fas fa-play me-2"></i>เริ่มทำแบบสอบถาม
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form id="surveyForm" class="d-none">
+                <div id="section-1" class="section-card">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-user text-primary me-2"></i>
+                                ส่วนที่ 1: ข้อมูลพื้นฐาน
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="question-group mb-4">
+                                <label class="form-label required">อายุของคุณ</label>
+                                <div class="radio-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" id="age1" value="ต่ำกว่า 25 ปี" required>
+                                        <label class="form-check-label" for="age1">ต่ำกว่า 25 ปี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" id="age2" value="25-35 ปี" required>
+                                        <label class="form-check-label" for="age2">25-35 ปี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" id="age3" value="36-45 ปี" required>
+                                        <label class="form-check-label" for="age3">36-45 ปี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" id="age4" value="46-55 ปี" required>
+                                        <label class="form-check-label" for="age4">46-55 ปี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" id="age5" value="56-65 ปี" required>
+                                        <label class="form-check-label" for="age5">56-65 ปี</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="age" id="age6" value="มากกว่า 65 ปี" required>
+                                        <label class="form-check-label" for="age6">มากกว่า 65 ปี</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="question-group mb-4">
+                                <label class="form-label required">เพศ</label>
+                                <div class="radio-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender1" value="ชาย" required>
+                                        <label class="form-check-label" for="gender1">ชาย</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender2" value="หญิง" required>
+                                        <label class="form-check-label" for="gender2">หญิง</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="gender" id="gender3" value="ไม่ต้องการระบุ" required>
+                                        <label class="form-check-label" for="gender3">ไม่ต้องการระบุ</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="question-group mb-4">
+                                <label class="form-label required">สถานภาพปัจจุบัน</label>
+                                <div class="radio-group">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status1" value="โสด" required>
+                                        <label class="form-check-label" for="status1">โสด</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status2" value="แต่งงาน/อยู่ด้วยกัน (ไม่มีลูก)" required>
+                                        <label class="form-check-label" for="status2">แต่งงาน/อยู่ด้วยกัน (ไม่มีลูก)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status3" value="แต่งงาน/อยู่ด้วยกัน (มีลูก)" required>
+                                        <label class="form-check-label" for="status3">แต่งงาน/อยู่ด้วยกัน (มีลูก)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status4" value="หย่าร้าง/แยกทาง (มีลูก)" required>
+                                        <label class="form-check-label" for="status4">หย่าร้าง/แยกทาง (มีลูก)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status5" value="หย่าร้าง/แยกทาง (ไม่มีลูก)" required>
+                                        <label class="form-check-label" for="status5">หย่าร้าง/แยกทาง (ไม่มีลูก)</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="status" id="status6" value="หม้าย" required>
+                                        <label class="form-check-label" for="status6">หม้าย</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="children-info" class="conditional-section d-none">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="question-group mb-4">
+                                            <label for="children_count" class="form-label">จำนวนลูก (คน)</label>
+                                            <input type="number" class="form-control" id="children_count" name="children_count" min="0" max="20">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="question-group mb-4">
+                                            <label for="youngest_age" class="form-label">อายุลูกคนเล็กสุด (ปี)</label>
+                                            <input type="number" class="form-control" id="youngest_age" name="youngest_age" min="0" max="50">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section-2" class="section-card d-none">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-chart-line text-primary me-2"></i>
+                                ส่วนที่ 2: ปัจจัย MANHA
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">2.1 Money (รายได้และการเงิน)</h5>
+                                <label class="form-label required">2.1.1 รายได้หลักต่อเดือนของคุณ</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="income" value="ต่ำกว่า 20,000 บาท" required><label class="form-check-label">ต่ำกว่า 20,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="income" value="20,001-40,000 บาท" required><label class="form-check-label">20,001-40,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="income" value="40,001-60,000 บาท" required><label class="form-check-label">40,001-60,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="income" value="60,001-100,000 บาท" required><label class="form-check-label">60,001-100,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="income" value="100,001-200,000 บาท" required><label class="form-check-label">100,001-200,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="income" value="มากกว่า 200,000 บาท" required><label class="form-check-label">มากกว่า 200,000 บาท</label></div>
+                                </div>
+                                <label class="form-label required mt-3">2.1.2 คุณมีแหล่งรายได้เสริมหรือไม่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="additional_income" value="ไม่มี" required><label class="form-check-label">ไม่มี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="additional_income" value="มี" required><label class="form-check-label">มี (เช่น งานพิเศษ, การลงทุน, การให้เช่า)</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="additional_income_details">
+                                    <label for="additional_income_source">ถ้ามี กรุณาระบุ:</label>
+                                    <input type="text" class="form-control" name="additional_income_source">
+                                </div>
+                                <label class="form-label required mt-3">2.1.3 คุณมีการวางแผนการเงินอย่างไร?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="financial_plan" value="ไม่มีการวางแผนเป็นพิเศษ ใช้จนหมดเงินเดือน" required><label class="form-check-label">ไม่มีการวางแผนเป็นพิเศษ ใช้จนหมดเงินเดือน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="financial_plan" value="ออมเงินเป็นบางเดือน ตามสถานการณ์" required><label class="form-check-label">ออมเงินเป็นบางเดือน ตามสถานการณ์</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="financial_plan" value="มีการออมเงินเป็นประจำ แต่ไม่มีเป้าหมายชัด" required><label class="form-check-label">มีการออมเงินเป็นประจำ แต่ไม่มีเป้าหมายชัด</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="financial_plan" value="มีการวางแผนการเงินระยะสั้น (1-3 ปี)" required><label class="form-check-label">มีการวางแผนการเงินระยะสั้น (1-3 ปี)</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="financial_plan" value="มีการวางแผนการเงินระยะยาว (มากกว่า 5 ปี)" required><label class="form-check-label">มีการวางแผนการเงินระยะยาว (มากกว่า 5 ปี)</label></div>
+                                </div>
+                                <label class="form-label required mt-3">2.1.4 หากรายได้หลักของคุณหยุดลงวันนี้ เงินออมปัจจุบันจะช่วยคุณได้นานแค่ไหน?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="savings_duration" value="น้อยกว่า 3 เดือน" required><label class="form-check-label">น้อยกว่า 3 เดือน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="savings_duration" value="3-6 เดือน" required><label class="form-check-label">3-6 เดือน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="savings_duration" value="6 เดือน - 1 ปี" required><label class="form-check-label">6 เดือน - 1 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="savings_duration" value="มากกว่า 1 ปี" required><label class="form-check-label">มากกว่า 1 ปี</label></div>
+                                </div>
+                            </div>
+
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">2.2 Asset (ทรัพย์สิน)</h5>
+                                <label class="form-label required">2.2.1 ทรัพย์สินที่คุณมีในปัจจุบัน (เลือกได้มากกว่า 1 ข้อ)</label>
+                                <div class="checkbox-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="บ้าน/คอนโด (อยู่เอง)"><label class="form-check-label">บ้าน/คอนโด (อยู่เอง)</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="บ้าน/คอนโด (ให้เช่า)"><label class="form-check-label">บ้าน/คอนโด (ให้เช่า)</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="รถยนต์"><label class="form-check-label">รถยนต์</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="รถจักรยานยนต์"><label class="form-check-label">รถจักรยานยนต์</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="เงินฝากธนาคาร/เงินออม"><label class="form-check-label">เงินฝากธนาคาร/เงินออม</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="การลงทุนในหุ้น/กองทุน"><label class="form-check-label">การลงทุนในหุ้น/กองทุน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="ทองคำ/เครื่องประดับ"><label class="form-check-label">ทองคำ/เครื่องประดับ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="assets" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_assets">
+                                    <label for="other_assets_source">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_assets_source">
+                                </div>
+                                <label class="form-label required mt-3">2.2.2 มูลค่าทรัพย์สินทั้งหมดของคุณประมาณเท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="total_assets" value="ต่ำกว่า 500,000 บาท" required><label class="form-check-label">ต่ำกว่า 500,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="total_assets" value="500,001-1,000,000 บาท" required><label class="form-check-label">500,001-1,000,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="total_assets" value="1,000,001-3,000,000 บาท" required><label class="form-check-label">1,000,001-3,000,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="total_assets" value="3,000,001-5,000,000 บาท" required><label class="form-check-label">3,000,001-5,000,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="total_assets" value="มากกว่า 5,000,000 บาท" required><label class="form-check-label">มากกว่า 5,000,000 บาท</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">2.3 Need (ความต้องการและเป้าหมาย)</h5>
+                                <label class="form-label required">2.3.1 เป้าหมายสำคัญในชีวิตของคุณ 3 อันดับแรก</label>
+                                <div class="checkbox-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การเกษียณอย่างสบาย" required><label class="form-check-label">การเกษียณอย่างสบาย</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การศึกษาของลูก" required><label class="form-check-label">การศึกษาของลูก</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การดูแลพ่อแม่/ผู้สูงอายุ" required><label class="form-check-label">การดูแลพ่อแม่/ผู้สูงอายุ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การซื้อบ้าน/ที่ดิน" required><label class="form-check-label">การซื้อบ้าน/ที่ดิน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การท่องเที่ยว/พักผ่อน" required><label class="form-check-label">การท่องเที่ยว/พักผ่อน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การเริ่มต้นธุรกิจ" required><label class="form-check-label">การเริ่มต้นธุรกิจ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="การสร้างมรดกให้ลูกหลาน" required><label class="form-check-label">การสร้างมรดกให้ลูกหลาน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_goals" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_goals">
+                                    <label for="other_goals_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_goals_text">
+                                </div>
+                                <label class="form-label required mt-3">2.3.2 คุณคิดว่าจะเกษียณอายุเท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_age" value="50-55 ปี" required><label class="form-check-label">50-55 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_age" value="56-60 ปี" required><label class="form-check-label">56-60 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_age" value="61-65 ปี" required><label class="form-check-label">61-65 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_age" value="มากกว่า 65 ปี" required><label class="form-check-label">มากกว่า 65 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_age" value="ยังไม่ได้คิด" required><label class="form-check-label">ยังไม่ได้คิด</label></div>
+                                </div>
+                                <label class="form-label required mt-3">2.3.3 หลังเกษียณ คุณคิดว่าจะต้องใช้เงินเดือนละเท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_cost" value="15,000-25,000 บาท" required><label class="form-check-label">15,000-25,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_cost" value="25,001-40,000 บาท" required><label class="form-check-label">25,001-40,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_cost" value="40,001-60,000 บาท" required><label class="form-check-label">40,001-60,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_cost" value="60,001-80,000 บาท" required><label class="form-check-label">60,001-80,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="retirement_cost" value="มากกว่า 80,000 บาท" required><label class="form-check-label">มากกว่า 80,000 บาท</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">2.4 Health (สุขภาพ)</h5>
+                                <label class="form-label required">2.4.1 สุขภาพโดยรวมของคุณเป็นอย่างไร?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="general_health" value="แข็งแรงดีมาก" required><label class="form-check-label">แข็งแรงดีมาก</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="general_health" value="แข็งแรงดี" required><label class="form-check-label">แข็งแรงดี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="general_health" value="ปานกลาง" required><label class="form-check-label">ปานกลาง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="general_health" value="ไม่ค่อยแข็งแรง" required><label class="form-check-label">ไม่ค่อยแข็งแรง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="general_health" value="มีปัญหาสุขภาพเรื้อรัง" required><label class="form-check-label">มีปัญหาสุขภาพเรื้อรัง</label></div>
+                                </div>
+                                <label class="form-label required mt-3">2.4.2 คุณมีประวัติการรักษาพยาบาลในปีที่ผ่านมาหรือไม่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_history" value="ไม่มี" required><label class="form-check-label">ไม่มี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_history" value="มี โรงพยาบาลรัฐ" required><label class="form-check-label">มี โรงพยาบาลรัฐ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_history" value="มี โรงพยาบาลเอกชน" required><label class="form-check-label">มี โรงพยาบาลเอกชน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_history" value="มี ทั้งรัฐและเอกชน" required><label class="form-check-label">มี ทั้งรัฐและเอกชน</label></div>
+                                </div>
+                                <label class="form-label required mt-3">2.4.3 ในครอบครัวมีประวัติโรคที่สำคัญหรือไม่? (เลือกได้หลายข้อ)</label>
+                                <div class="checkbox-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="ไม่มี" required><label class="form-check-label">ไม่มี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="โรคหัวใจ" required><label class="form-check-label">โรคหัวใจ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="โรคความดันโลหิตสูง" required><label class="form-check-label">โรคความดันโลหิตสูง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="เบาหวาน" required><label class="form-check-label">เบาหวาน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="โรคมะเร็ง" required><label class="form-check-label">โรคมะเร็ง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="โรคไต" required><label class="form-check-label">โรคไต</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="family_diseases" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_diseases">
+                                    <label for="other_diseases_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_diseases_text">
+                                </div>
+                                <label class="form-label required mt-3">2.4.4 ค่าใช้จ่ายทางการแพทย์ต่อเดือนของคุณประมาณเท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_cost" value="ไม่มี" required><label class="form-check-label">ไม่มี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_cost" value="ต่ำกว่า 2,000 บาท" required><label class="form-check-label">ต่ำกว่า 2,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_cost" value="2,001-5,000 บาท" required><label class="form-check-label">2,001-5,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_cost" value="5,001-10,000 บาท" required><label class="form-check-label">5,001-10,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="medical_cost" value="มากกว่า 10,000 บาท" required><label class="form-check-label">มากกว่า 10,000 บาท</label></div>
+                                </div>
+                            </div>
+
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">2.5 Age (วัยและมุมมองการวางแผน)</h5>
+                                <label class="form-label required">2.5.1 คุณเริ่มคิดเรื่องการวางแผนอนาคตตั้งแต่อายุเท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="planning_age" value="ก่อน 25 ปี" required><label class="form-check-label">ก่อน 25 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="planning_age" value="25-30 ปี" required><label class="form-check-label">25-30 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="planning_age" value="31-40 ปี" required><label class="form-check-label">31-40 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="planning_age" value="หลัง 40 ปี" required><label class="form-check-label">หลัง 40 ปี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="planning_age" value="ยังไม่เคยคิด" required><label class="form-check-label">ยังไม่เคยคิด</label></div>
+                                </div>
+                                <label class="form-label required mt-3">2.5.2 สิ่งที่คุณกังวลมากที่สุดเกี่ยวกับอนาคต</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="future_concern" value="สุขภาพตัวเองและครอบครัว" required><label class="form-check-label">สุขภาพตัวเองและครอบครัว</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="future_concern" value="ความมั่นคงทางการเงิน" required><label class="form-check-label">ความมั่นคงทางการเงิน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="future_concern" value="การดูแลพ่อแม่ผู้สูงอายุ" required><label class="form-check-label">การดูแลพ่อแม่ผู้สูงอายุ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="future_concern" value="อนาคตของลูก" required><label class="form-check-label">อนาคตของลูก</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="future_concern" value="การเกษียณ" required><label class="form-check-label">การเกษียณ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="future_concern" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_concern">
+                                    <label for="other_concern_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_concern_text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section-3" class="section-card d-none">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-search text-primary me-2"></i>
+                                ส่วนที่ 3: Life Gaps & Lifestyle Analysis
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">3.1 ความกังวลหลักในชีวิต</h5>
+                                <label class="form-label required">3.1.1 จากปัจจัยเหล่านี้ อะไรที่ทำให้คุณกังวลมากที่สุด? (เรียงลำดับ 1-5)</label>
+                                <p class="text-muted">โปรดใส่ตัวเลข 1-5 ในช่องว่าง</p>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">การเงินไม่พอใช้ในอนาคต</span>
+                                            <input type="number" class="form-control" name="concern_finance" min="1" max="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">สุขภาพเสื่อมลง</span>
+                                            <input type="number" class="form-control" name="concern_health" min="1" max="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">อนาคตลูก/การศึกษา</span>
+                                            <input type="number" class="form-control" name="concern_children" min="1" max="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">การดูแลพ่อแม่</span>
+                                            <input type="number" class="form-control" name="concern_parents" min="1" max="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">ความไม่มั่นคงในงาน</span>
+                                            <input type="number" class="form-control" name="concern_job" min="1" max="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <div class="input-group">
+                                            <span class="input-group-text">อื่นๆ</span>
+                                            <input type="text" class="form-control" name="concern_other">
+                                        </div>
+                                    </div>
+                                </div>
+                                <label class="form-label required mt-3">3.1.2 หากคุณเจ็บป่วยหรือไม่สามารถทำงานได้ 6 เดือน ผลกระทบต่อครอบครัวเป็นอย่างไร?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="sick_impact" value="ไม่มีผลกระทบ มีเงินออมเพียงพอ" required><label class="form-check-label">ไม่มีผลกระทบ มีเงินออมเพียงพอ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="sick_impact" value="มีผลกระทบเล็กน้อย สามารถปรับตัวได้" required><label class="form-check-label">มีผลกระทบเล็กน้อย สามารถปรับตัวได้</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="sick_impact" value="มีผลกระทบปานกลาง ต้องลดค่าใช้จ่าย" required><label class="form-check-label">มีผลกระทบปานกลาง ต้องลดค่าใช้จ่าย</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="sick_impact" value="มีผลกระทบมาก อาจต้องกู้เงิน" required><label class="form-check-label">มีผลกระทบมาก อาจต้องกู้เงิน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="sick_impact" value="มีผลกระทบอย่างร้ายแรง อาจต้องขายทรัพย์สิน" required><label class="form-check-label">มีผลกระทบอย่างร้ายแรง อาจต้องขายทรัพย์สิน</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">3.2 สไตล์การใช้ชีวิต</h5>
+                                <label class="form-label required">3.2.1 สไตล์การใช้ชีวิตของคุณเป็นแบบไหน?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="lifestyle" value="ชอบความมั่นคง เน้นความปลอดภัย" required><label class="form-check-label">ชอบความมั่นคง เน้นความปลอดภัย</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="lifestyle" value="ชอบการผจญภัย เสี่ยงได้บ้าง" required><label class="form-check-label">ชอบการผจญภัย เสี่ยงได้บ้าง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="lifestyle" value="ทำงานหนัก เน้นความสำเร็จ" required><label class="form-check-label">ทำงานหนัก เน้นความสำเร็จ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="lifestyle" value="สมดุลระหว่างงานกับชีวิต" required><label class="form-check-label">สมดุลระหว่างงานกับชีวิต</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="lifestyle" value="เน้นครอบครัวเป็นหลัก" required><label class="form-check-label">เน้นครอบครัวเป็นหลัก</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="lifestyle" value="ชอบท่องเที่ยว เน้นประสบการณ์" required><label class="form-check-label">ชอบท่องเที่ยว เน้นประสบการณ์</label></div>
+                                </div>
+                                <label class="form-label required mt-3">3.2.2 กิจกรรมที่คุณทำเป็นประจำ (เลือกได้หลายข้อ)</label>
+                                <div class="checkbox-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="ออกกำลังกาย/กีฬา" required><label class="form-check-label">ออกกำลังกาย/กีฬา</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="ท่องเที่ยว" required><label class="form-check-label">ท่องเที่ยว</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="งานอดิเรก (อ่านหนังสือ, ดูหนัง, ฟังเพลง)" required><label class="form-check-label">งานอดิเรก (อ่านหนังสือ, ดูหนัง, ฟังเพลง)</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="สังสรรค์กับเพื่อนฝูง" required><label class="form-check-label">สังสรรค์กับเพื่อนฝูง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="ใช้เวลากับครอบครัว" required><label class="form-check-label">ใช้เวลากับครอบครัว</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="เรียนรู้สิ่งใหม่" required><label class="form-check-label">เรียนรู้สิ่งใหม่</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="regular_activities" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_activities">
+                                    <label for="other_activities_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_activities_text">
+                                </div>
+                                <label class="form-label required mt-3">3.2.3 คุณมีกิจกรรมที่มีความเสี่ยงสูงหรือไม่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="risky_activities" value="ไม่มี" required><label class="form-check-label">ไม่มี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="risky_activities" value="มี" required><label class="form-check-label">มี</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="risky_activities_details">
+                                    <label for="risky_activities_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="risky_activities_text">
+                                </div>
+                            </div>
+                            
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">3.3 ความคาดหวังสำหรับความมั่นคง</h5>
+                                <label class="form-label required">3.3.1 "ความมั่นคงในชีวิต" สำหรับคุณหมายถึงอะไร? (เลือกได้หลายข้อ)</label>
+                                <div class="checkbox-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="มีเงินออมเพียงพอสำหรับเหตุฉุกเฉิน" required><label class="form-check-label">มีเงินออมเพียงพอสำหรับเหตุฉุกเฉิน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="รายได้มั่นคงและสม่ำเสมอ" required><label class="form-check-label">รายได้มั่นคงและสม่ำเสมอ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="มีประกันสุขภาพและประกันชีวิตที่ดี" required><label class="form-check-label">มีประกันสุขภาพและประกันชีวิตที่ดี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="ครอบครัวมีความปลอดภัย" required><label class="form-check-label">ครอบครัวมีความปลอดภัย</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="มีที่อยู่อาศัยเป็นของตัวเอง" required><label class="form-check-label">มีที่อยู่อาศัยเป็นของตัวเอง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="มีการวางแผนเกษียณที่ชัดเจน" required><label class="form-check-label">มีการวางแผนเกษียณที่ชัดเจน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="life_security" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_security">
+                                    <label for="other_security_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_security_text">
+                                </div>
+                                <label class="form-label required mt-3">3.3.2 คุณคิดว่าสิ่งใดที่จะช่วยให้คุณ "สบายใจขึ้น" มากที่สุด?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="มีเงินออมมากขึ้น" required><label class="form-check-label">มีเงินออมมากขึ้น</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="มีประกันภัยที่ครอบคลุม" required><label class="form-check-label">มีประกันภัยที่ครอบคลุม</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="รายได้เพิ่มขึ้น" required><label class="form-check-label">รายได้เพิ่มขึ้น</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="หนี้สินลดลง" required><label class="form-check-label">หนี้สินลดลง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="สุขภาพที่ดีขึ้น" required><label class="form-check-label">สุขภาพที่ดีขึ้น</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="ความสัมพันธ์ในครอบครัวที่ดี" required><label class="form-check-label">ความสัมพันธ์ในครอบครัวที่ดี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="peace_of_mind" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_peace_of_mind">
+                                    <label for="other_peace_of_mind_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_peace_of_mind_text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section-4" class="section-card d-none">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-bullseye text-primary me-2"></i>
+                                ส่วนที่ 4: โฟกัสพิเศษตามสถานภาพ
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="single-questions" class="d-none">
+                                <h5 class="mb-3">สำหรับผู้ที่โสด</h5>
+                                <label class="form-label required">4.1.1 ในฐานะคนโสด คุณกังวลเรื่องใดมากที่สุด?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_concern" value="ความมั่นคงด้านรายได้ยามชรา" required><label class="form-check-label">ความมั่นคงด้านรายได้ยามชรา</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_concern" value="การดูแลตัวเองเมื่อป่วย" required><label class="form-check-label">การดูแลตัวเองเมื่อป่วย</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_concern" value="การดูแลพ่อแม่" required><label class="form-check-label">การดูแลพ่อแม่</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_concern" value="ความเหงาในยามแก่" required><label class="form-check-label">ความเหงาในยามแก่</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_concern" value="การไม่มีคนสืบทอดมรดก" required><label class="form-check-label">การไม่มีคนสืบทอดมรดก</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_concern" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_single_concern">
+                                    <label for="other_single_concern_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_single_concern_text">
+                                </div>
+                                <label class="form-label required mt-3">4.1.2 คุณคิดว่าจำเป็นต้องเตรียมเงินสำหรับอะไรเป็นพิเศษ?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_prep" value="กองทุนฉุกเฉินที่มากกว่าคนมีครอบครัว" required><label class="form-check-label">กองทุนฉุกเฉินที่มากกว่าคนมีครอบครัว</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_prep" value="ประกันสุขภาพที่ครอบคลุม" required><label class="form-check-label">ประกันสุขภาพที่ครอบคลุม</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_prep" value="การดูแลระยะยาว (Long-term Care)" required><label class="form-check-label">การดูแลระยะยาว (Long-term Care)</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_prep" value="เงินเกษียณที่มากกว่าปกติ" required><label class="form-check-label">เงินเกษียณที่มากกว่าปกติ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="single_prep" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_single_prep">
+                                    <label for="other_single_prep_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_single_prep_text">
+                                </div>
+                            </div>
+
+                            <div id="parent-questions" class="d-none">
+                                <h5 class="mb-3">สำหรับผู้ที่มีลูก</h5>
+                                <label class="form-label required">4.2.1 ความกังวลหลักเกี่ยวกับลูกคืออะไร?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="child_concern" value="ค่าใช้จ่ายด้านการศึกษา" required><label class="form-check-label">ค่าใช้จ่ายด้านการศึกษา</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="child_concern" value="อนาคตของลูกหากตัวเองเกิดอะไรขึ้น" required><label class="form-check-label">อนาคตของลูกหากตัวเองเกิดอะไรขึ้น</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="child_concern" value="การเลี้ยงดูให้ลูกมีคุณภาพชีวิตที่ดี" required><label class="form-check-label">การเลี้ยงดูให้ลูกมีคุณภาพชีวิตที่ดี</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="child_concern" value="การสอนลูกให้มีความรับผิดชอบทางการเงิน" required><label class="form-check-label">การสอนลูกให้มีความรับผิดชอบทางการเงิน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="child_concern" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_child_concern">
+                                    <label for="other_child_concern_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_child_concern_text">
+                                </div>
+                                <label class="form-label required mt-3">4.2.2 คุณประมาณการค่าใช้จ่ายเพื่อการศึกษาลูกไว้เท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="education_cost" value="ยังไม่ได้คำนวณ" required><label class="form-check-label">ยังไม่ได้คำนวณ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="education_cost" value="500,000-1,000,000 บาท" required><label class="form-check-label">500,000-1,000,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="education_cost" value="1,000,001-2,000,000 บาท" required><label class="form-check-label">1,000,001-2,000,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="education_cost" value="2,000,001-3,000,000 บาท" required><label class="form-check-label">2,000,001-3,000,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="education_cost" value="มากกว่า 3,000,000 บาท" required><label class="form-check-label">มากกว่า 3,000,000 บาท</label></div>
+                                </div>
+                                <label class="form-label required mt-3">4.2.3 หากคุณเกิดอะไรขึ้น คุณต้องการให้ครอบครัวได้รับเงินเดือนละเท่าไหร่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="monthly_income_protection" value="20,000-40,000 บาท" required><label class="form-check-label">20,000-40,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="monthly_income_protection" value="40,001-60,000 บาท" required><label class="form-check-label">40,001-60,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="monthly_income_protection" value="60,001-100,000 บาท" required><label class="form-check-label">60,001-100,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="monthly_income_protection" value="100,001-150,000 บาท" required><label class="form-check-label">100,001-150,000 บาท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="monthly_income_protection" value="มากกว่า 150,000 บาท" required><label class="form-check-label">มากกว่า 150,000 บาท</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="section-5" class="section-card d-none">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-handshake text-primary me-2"></i>
+                                ส่วนที่ 5: การประเมินความเสี่ยงและทัศนคติ
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">5.1 ทัศนคติต่อความเสี่ยง</h5>
+                                <label class="form-label required">5.1.1 เมื่อต้องเลือกระหว่างการลงทุนหรือประกันภัย คุณจะเลือกอย่างไร?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="invest_or_insure" value="เลือกการลงทุนที่มีผลตอบแทนสูง ยอมรับความเสี่ยง" required><label class="form-check-label">เลือกการลงทุนที่มีผลตอบแทนสูง ยอมรับความเสี่ยง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="invest_or_insure" value="เลือกประกันภัยที่มั่นคงแน่นอน" required><label class="form-check-label">เลือกประกันภัยที่มั่นคงแน่นอน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="invest_or_insure" value="แบ่งสัดส่วน 50:50" required><label class="form-check-label">แบ่งสัดส่วน 50:50</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="invest_or_insure" value="ปรับเปลี่ยนตามช่วงอายุและสถานการณ์" required><label class="form-check-label">ปรับเปลี่ยนตามช่วงอายุและสถานการณ์</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="invest_or_insure" value="ไม่แน่ใจ อยากได้คำแนะนำจากผู้เชี่ยวชาญ" required><label class="form-check-label">ไม่แน่ใจ อยากได้คำแนะนำจากผู้เชี่ยวชาญ</label></div>
+                                </div>
+                                <label class="form-label required mt-3">5.1.2 หากมีเงิน 100,000 บาท คุณจะจัดสรรอย่างไร?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="money_allocation" value="เงินออม 70%, ลงทุนเสี่ยงต่ำ 20%, ลงทุนเสี่ยงสูง 10%" required><label class="form-check-label">เงินออม 70%, ลงทุนเสี่ยงต่ำ 20%, ลงทุนเสี่ยงสูง 10%</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="money_allocation" value="เงินออม 50%, ลงทุนเสี่ยงต่ำ 30%, ลงทุนเสี่ยงสูง 20%" required><label class="form-check-label">เงินออม 50%, ลงทุนเสี่ยงต่ำ 30%, ลงทุนเสี่ยงสูง 20%</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="money_allocation" value="เงินออม 30%, ลงทุนเสี่ยงต่ำ 40%, ลงทุนเสี่ยงสูง 30%" required><label class="form-check-label">เงินออม 30%, ลงทุนเสี่ยงต่ำ 40%, ลงทุนเสี่ยงสูง 30%</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="money_allocation" value="กระจายความเสี่ยงเท่าๆ กัน" required><label class="form-check-label">กระจายความเสี่ยงเท่าๆ กัน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="money_allocation" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_money_allocation">
+                                    <label for="other_money_allocation_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_money_allocation_text">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="section-6" class="section-card d-none">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-file-invoice-dollar text-primary me-2"></i>
+                                ส่วนที่ 6: ประสบการณ์และความรู้เรื่องประกัน
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">6.1 ประสบการณ์ด้านประกันภัย</h5>
+                                <label class="form-label required">6.1.1 คุณมีประกันภัยอะไรบ้างในปัจจุบัน? (เลือกได้หลายข้อ)</label>
+                                <div class="checkbox-group">
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ไม่มีประกันใดๆ" required><label class="form-check-label">ไม่มีประกันใดๆ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ประกันสังคม/ประกันสุขภาพถ้วนหน้า" required><label class="form-check-label">ประกันสังคม/ประกันสุขภาพถ้วนหน้า</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ประกันสุขภาพเอกชน" required><label class="form-check-label">ประกันสุขภาพเอกชน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ประกันชีวิต" required><label class="form-check-label">ประกันชีวิต</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ประกันอุบัติเหตุ" required><label class="form-check-label">ประกันอุบัติเหตุ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ประกันรถยนต์" required><label class="form-check-label">ประกันรถยนต์</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="ประกันบ้าน/ทรัพย์สิน" required><label class="form-check-label">ประกันบ้าน/ทรัพย์สิน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="checkbox" name="current_insurance" value="อื่นๆ"><label class="form-check-label">อื่นๆ</label></div>
+                                </div>
+                                <div class="form-group mt-2 d-none" id="other_insurance">
+                                    <label for="other_insurance_text">โปรดระบุ:</label>
+                                    <input type="text" class="form-control" name="other_insurance_text">
+                                </div>
+                                <label class="form-label required mt-3">6.1.2 คุณเคยมีประสบการณ์การเคลมประกันหรือไม่?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="claim_experience" value="ไม่เคย" required><label class="form-check-label">ไม่เคย</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="claim_experience" value="เคย และพอใจกับการบริการ" required><label class="form-check-label">เคย และพอใจกับการบริการ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="claim_experience" value="เคย แต่ไม่พอใจกับการบริการ" required><label class="form-check-label">เคย แต่ไม่พอใจกับการบริการ</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="claim_experience" value="เคย แต่การเคลมไม่ผ่าน" required><label class="form-check-label">เคย แต่การเคลมไม่ผ่าน</label></div>
+                                </div>
+                                <label class="form-label required mt-3">6.1.3 ปัจจัยใดสำคัญที่สุดในการเลือกประกันภัย?</label>
+                                <div class="radio-group">
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="insurance_factor" value="ราคาเบี้ยประกัน" required><label class="form-check-label">ราคาเบี้ยประกัน</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="insurance_factor" value="ความครอบคลุมของความคุ้มครอง" required><label class="form-check-label">ความครอบคลุมของความคุ้มครอง</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="insurance_factor" value="ชื่อเสียงของบริษัท" required><label class="form-check-label">ชื่อเสียงของบริษัท</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="insurance_factor" value="การบริการลูกค้า" required><label class="form-check-label">การบริการลูกค้า</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="insurance_factor" value="ความรวดเร็วในการจ่ายค่าสินไหม" required><label class="form-check-label">ความรวดเร็วในการจ่ายค่าสินไหม</label></div>
+                                    <div class="form-check"><input class="form-check-input" type="radio" name="insurance_factor" value="คำแนะนำจากคนรู้จัก" required><label class="form-check-label">คำแนะนำจากคนรู้จัก</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="section-7" class="section-card d-none">
+                    <div class="card shadow-sm">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">
+                                <i class="fas fa-comment-dots text-primary me-2"></i>
+                                ส่วนที่ 7: คำถามปลายเปิด
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="question-group mb-4">
+                                <h5 class="mb-3">7.1 มุมมองส่วนบุคคล</h5>
+                                <div class="form-group mb-4">
+                                    <label for="life_gaps_description" class="form-label required">7.1.1 กรุณาอธิบายด้วยคำพูดของคุณเอง: "ช่องโหว่ในชีวิต" ที่คุณรู้สึกว่ายังขาดหายไปและอยากให้มีการป้องกันหรือเตรียมการ</label>
+                                    <textarea class="form-control" id="life_gaps_description" name="life_gaps_description" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label class="form-label required">7.1.2 หากคุณมีงบประมาณจำกัดสำหรับการซื้อประกัน คุณจะจัดลำดับความสำคัญอย่างไร?</label>
+                                    <input type="text" class="form-control mb-2" name="priority_1" placeholder="อันดับ 1:" required>
+                                    <input type="text" class="form-control mb-2" name="priority_2" placeholder="อันดับ 2:">
+                                    <input type="text" class="form-control mb-2" name="priority_3" placeholder="อันดับ 3:">
+                                </div>
+                                <div class="form-group mb-4">
+                                    <label for="other_concerns" class="form-label">7.1.3 มีคำถามหรือข้อกังวลอื่นๆ เกี่ยวกับการวางแผนชีวิตที่อยากปรึกษาหรือไม่?</label>
+                                    <textarea class="form-control" id="other_concerns" name="other_concerns" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div id="summary-section" class="section-card d-none">
+                <div class="card shadow-sm">
+                    <div class="card-header">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-check-circle text-success me-2"></i>
+                            สรุปข้อมูลที่กรอก
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="summary-content"></div>
+                        <div class="text-center mt-4">
+                            <button type="button" class="btn btn-secondary me-2" onclick="editSurvey()">
+                                <i class="fas fa-edit me-2"></i>แก้ไขข้อมูล
+                            </button>
+                            <button type="button" class="btn btn-success" id="submitBtn">
+                                <i class="fas fa-paper-plane me-2"></i>ส่งข้อมูล
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="thank-you-section" class="section-card d-none">
+                <div class="card shadow-sm">
+                    <div class="card-body text-center py-5">
+                        <i class="fas fa-heart fa-3x text-success mb-4"></i>
+                        <h2 class="text-success mb-3">ขอบคุณสำหรับข้อมูลที่มีค่า!</h2>
+                        <p class="lead">การรู้จักตัวเองเป็นก้าวแรกสู่การวางแผนชีวิตที่มั่นคงและมีความสุข</p>
+                        <p class="text-muted">ข้อมูลของคุณได้รับการบันทึกเรียบร้อยแล้ว เราจะนำไปวิเคราะห์และเสนอแผนประกันที่เหมาะสมกับคุณ</p>
+                        
+                        <div class="mt-4">
+                            <button type="button" class="btn btn-primary" onclick="location.reload()">
+                                <i class="fas fa-redo me-2"></i>ทำแบบสอบถามใหม่
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="navigation" class="d-flex justify-content-between mt-4 mb-5 d-none">
+                <button type="button" class="btn btn-outline-secondary" id="prevBtn" onclick="previousSection()">
+                    <i class="fas fa-chevron-left me-2"></i>ย้อนกลับ
+                </button>
+                <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextSection()">
+                    ถัดไป<i class="fas fa-chevron-right ms-2"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-body text-center py-4">
+                        <div class="spinner-border text-primary mb-3" role="status">
+                            <span class="visually-hidden">กำลังส่งข้อมูล...</span>
+                        </div>
+                        <div>กำลังส่งข้อมูล...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const statusRadios = document.querySelectorAll('input[name="status"]');
+            const childrenInfo = document.getElementById('children-info');
+            const surveyForm = document.getElementById('surveyForm');
+            const singleQuestions = document.getElementById('single-questions');
+            const parentQuestions = document.getElementById('parent-questions');
+            const totalSections = 6;
+            let currentSection = 1;
+
+            const updateConditionalSections = () => {
+                const selectedStatus = document.querySelector('input[name="status"]:checked')?.value;
+                if (selectedStatus && (selectedStatus.includes('มีลูก') || selectedStatus.includes('หย่าร้าง/แยกทาง (มีลูก)'))) {
+                    childrenInfo.classList.remove('d-none');
+                } else {
+                    childrenInfo.classList.add('d-none');
+                }
+
+                if (selectedStatus === 'โสด') {
+                    singleQuestions.classList.remove('d-none');
+                    parentQuestions.classList.add('d-none');
+                } else if (selectedStatus && selectedStatus.includes('มีลูก')) {
+                    parentQuestions.classList.remove('d-none');
+                    singleQuestions.classList.add('d-none');
+                } else {
+                    singleQuestions.classList.add('d-none');
+                    parentQuestions.classList.add('d-none');
+                }
+            };
+
+            statusRadios.forEach(radio => {
+                radio.addEventListener('change', updateConditionalSections);
+            });
+
+            // Handle "อื่นๆ" inputs
+            const setupConditionalInput = (radioName, inputId) => {
+                const radios = document.querySelectorAll(`input[name="${radioName}"]`);
+                const inputGroup = document.getElementById(inputId);
+                radios.forEach(radio => {
+                    radio.addEventListener('change', () => {
+                        if (radio.value === 'อื่นๆ' || (radio.type === 'checkbox' && radio.checked && radio.value === 'อื่นๆ')) {
+                            inputGroup.classList.remove('d-none');
+                        } else if (radio.type !== 'checkbox') {
+                            inputGroup.classList.add('d-none');
+                        }
+                    });
+                });
+            };
+
+            setupConditionalInput('additional_income', 'additional_income_details');
+            setupConditionalInput('assets', 'other_assets');
+            setupConditionalInput('life_goals', 'other_goals');
+            setupConditionalInput('family_diseases', 'other_diseases');
+            setupConditionalInput('future_concern', 'other_concern');
+            setupConditionalInput('regular_activities', 'other_activities');
+            setupConditionalInput('risky_activities', 'risky_activities_details');
+            setupConditionalInput('life_security', 'other_security');
+            setupConditionalInput('peace_of_mind', 'other_peace_of_mind');
+            setupConditionalInput('single_concern', 'other_single_concern');
+            setupConditionalInput('single_prep', 'other_single_prep');
+            setupConditionalInput('child_concern', 'other_child_concern');
+            setupConditionalInput('current_insurance', 'other_insurance');
+        });
+
+        // The JS functions (startSurvey, nextSection, etc.) will be in app.js as before.
+    </script>
+</body>
+</html>
